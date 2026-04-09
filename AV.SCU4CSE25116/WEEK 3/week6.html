@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Ecommerce Store</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+}
+
+/* Header */
+.header{
+background-color:blue;
+color:white;
+text-align:center;
+padding:20px;
+font-size:28px;
+}
+
+/* Sale Banner */
+.sale{
+background-color:yellow;
+color:black;
+text-align:center;
+padding:10px;
+font-size:20px;
+font-weight:bold;
+}
+
+/* Layout */
+.container{
+display:flex;
+}
+
+/* Sidebar */
+.sidebar{
+width:200px;
+background:#f2f2f2;
+padding:20px;
+}
+
+.sidebar h3{
+margin-top:0;
+}
+
+.sidebar ul{
+list-style:none;
+padding:0;
+}
+
+.sidebar li{
+padding:8px 0;
+}
+
+/* Products */
+.products{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+padding:20px;
+flex:1;
+}
+
+.product{
+border:1px solid #ccc;
+padding:15px;
+text-align:center;
+}
+
+.product h4{
+color:black;
+}
+
+.price{
+color:green;
+font-weight:bold;
+}
+
+button{
+background-color:blue;
+color:white;
+border:none;
+padding:10px 15px;
+cursor:pointer;
+}
+
+/* Footer */
+.footer{
+background:#333;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+My Ecommerce Store
+</div>
+
+<div class="sale">
+Big Sale! Up to 50% Off
+</div>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Categories</h3>
+<ul>
+<li>Electronics</li>
+<li>Clothing</li>
+<li>Home Appliances</li>
+<li>Books</li>
+</ul>
+</div>
+
+<div class="products">
+
+<div class="product">
+<h4>Smartphone</h4>
+<p class="price">$499</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<h4>T-Shirt</h4>
+<p class="price">$25</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<h4>Microwave</h4>
+<p class="price">$150</p>
+<button>Add to Cart</button>
+</div>
+
+<div class="product">
+<h4>Programming Book</h4>
+<p class="price">$30</p>
+<button>Add to Cart</button>
+</div>
+
+</div>
+</div>
+
+<div class="footer">
+© 2026 My Ecommerce Store
+</div>
+
+</body>
+</html>

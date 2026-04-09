@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Amrita Hotels - Booking</title>
+
+<style>
+body{
+font-family: Arial, sans-serif;
+background-color:#f5f5f5;
+}
+
+header{
+text-align:center;
+background-color:#8B0000;
+color:white;
+padding:15px;
+}
+
+nav{
+text-align:center;
+margin:10px;
+}
+
+nav button{
+padding:10px 15px;
+margin:5px;
+border:none;
+background-color:#444;
+color:white;
+cursor:pointer;
+border-radius:5px;
+}
+
+nav button:hover{
+background-color:#8B0000;
+}
+
+section{
+width:50%;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+}
+
+table{
+width:100%;
+}
+
+td{
+padding:8px;
+}
+
+input, select, textarea{
+width:100%;
+padding:8px;
+border-radius:5px;
+border:1px solid gray;
+}
+
+.submit-btn{
+background-color:#8B0000;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.submit-btn:hover{
+background-color:#a00000;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>🕉️ Amrita Hotels 🏨</h1>
+</header>
+
+<nav>
+<button onclick="window.location.href='5b.html'">Home</button>
+<button onclick="window.location.href='booking.html'">Booking</button>
+<button onclick="window.location.href='contact.html'">Contact Us</button>
+<button onclick="window.location.href='about.html'">About Us</button>
+</nav>
+
+<section>
+
+<h2>Book Your Stay in Amrita Hotels</h2>
+
+<form onsubmit="alert('Your booking request has been submitted successfully! We will contact you soon.')">
+
+<table>
+
+<tr>
+<td><label for="fname">Full Name</label></td>
+<td><input type="text" id="fname" name="fullname" required></td>
+</tr>
+
+<tr>
+<td><label for="email">Email</label></td>
+<td><input type="email" id="email" name="email" required></td>
+</tr>
+
+<tr>
+<td><label for="number">Phone Number</label></td>
+<td><input type="tel" id="number" name="number" pattern="[0-9]{10}" required></td>
+</tr>
+
+<tr>
+<td><label for="checkin">Check-in Date</label></td>
+<td><input type="date" id="checkin" name="checkin" required></td>
+</tr>
+
+<tr>
+<td><label for="checkout">Check-out Date</label></td>
+<td><input type="date" id="checkout" name="checkout" required></td>
+</tr>
+
+<tr>
+<td><label for="room">Room Type</label></td>
+<td>
+<select id="room" name="room" required>
+<option value="">Select Room Type</option>
+<option value="Single">Single</option>
+<option value="Double">Double</option>
+<option value="Suite">Suite</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td><label for="guests">Number of Guests</label></td>
+<td><input type="number" id="guests" name="guests" min="1" required></td>
+</tr>
+
+<tr>
+<td><label for="requests">Special Requests</label></td>
+<td><textarea id="requests" name="requests"></textarea></td>
+</tr>
+
+</table>
+
+<br>
+
+<button type="submit" class="submit-btn">Submit</button>
+
+</form>
+
+</section>
+
+</body>
+</html>

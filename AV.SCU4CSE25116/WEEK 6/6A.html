@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Medical Store</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#70891f;
+}
+
+.container{
+display:grid;
+grid-template-columns:220px 1fr;
+grid-template-rows:70px 1fr 40px;
+grid-template-areas:
+"header header"
+"sidebar main"
+"footer footer";
+height:100vh;
+}
+
+.header{
+grid-area:header;
+background:rgb(228, 132, 14);
+color:white;
+text-align:center;
+padding:20px;
+font-size:24px;
+font-weight:bold;
+}
+
+.sidebar{
+grid-area:sidebar;
+background:#eaeaea;
+padding:20px;
+}
+
+.sidebar h3{
+margin-top:0;
+}
+
+.sidebar a{
+display:block;
+text-decoration:none;
+background:lightcyan;
+color:black;
+padding:10px;
+margin:10px 0;
+border-radius:5px;
+text-align:center;
+}
+
+.sidebar a:hover{
+background:turquoise;
+}
+
+.main{
+grid-area:main;
+padding:20px;
+}
+
+.products{
+display:none;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.products:target{
+display:grid;
+}
+
+.product{
+background:white;
+padding:15px;
+border-radius:8px;
+text-align:center;
+box-shadow:0 3px 8px rgba(0,0,0,0.2);
+}
+
+.product img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:5px;
+}
+
+.product h4{
+margin:10px 0;
+}
+
+.price{
+color:#b8860b;
+font-weight:bold;
+}
+
+.buy{
+padding:8px 14px;
+border:none;
+background:#b8860b;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+.buy:hover{
+background:#a67c00;
+}
+
+.footer{
+grid-area:footer;
+background:#222;
+color:white;
+text-align:center;
+padding:10px;
+}
+
+@media(max-width:768px){
+
+.container{
+grid-template-columns:1fr;
+grid-template-areas:
+"header"
+"sidebar"
+"main"
+"footer";
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+💊 Medical Store
+</div>
+
+<div class="sidebar">
+
+<h3>Categories</h3>
+
+<a href="#medicines">Medicines</a>
+<a href="#healthcare">Healthcare</a>
+<a href="#devices">Medical Devices</a>
+
+</div>
+
+<div class="main">
+
+<h2>Select a Medical Category</h2>
+
+<!-- Medicines -->
+
+<div class="products" id="medicines">
+
+<div class="product">
+<img src="para.jpg">
+<h4>Paracetamol</h4>
+<p class="price">₹50</p>
+<button class="buy">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="asp.jpg">
+<h4>Aspirin</h4>
+<p class="price">₹70</p>
+<button class="buy">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="multi.jpg">
+<h4>Vitamin Tablets</h4>
+<p class="price">₹120</p>
+<button class="buy">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="atom.jpeg">
+<h4>Antibiotic Capsules</h4>
+<p class="price">₹180</p>
+<button class="buy">Buy Now</button>
+</div>
+
+</div>
+
+<!-- Healthcare -->
+
+<div class="products" id="healthcare">
+
+<div class="product">
+<img src="hand.jpg">
+<h4>Hand Sanitizer</h4>
+<p class="price">₹90</p>
+<button class="buy">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="face.jpg">
+<h4>Face Mask</h4>
+<p class="price">₹30</p>
+<button class="buy">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="faid.jpeg">
+<h4>First Aid Kit</h4>
+<p class="price">₹350</p>
+<button class="buy">Buy Now</button>
+</div>
+</div>
+
+<!-- Medical Devices -->
+
+<div class="products" id="devices">
+
+<div class="product">
+<img src="thermo.jpg">
+<h4>Thermometer</h4>
+<p class="price">₹250</p>
+<button class="buy">Buy Now</button>
+</div>
+
+<div class="product">
+<IMg src="bp.jpg"></IMg>
+<h4>BP Monitor</h4>
+<p class="price">₹1450</p>
+<button class="buy">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="spo2.jpg">
+<h4>PULSE Oximeter</h4>
+<p class="price">₹950</p>
+<button class="buy">Buy Now</button>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+© 2026 Medical Store | All Rights Reserved
+</div>
+
+</div>
+
+</body>
+</html>

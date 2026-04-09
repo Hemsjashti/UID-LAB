@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Stays | Hyderabad</title>
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark-blue: #0a192f;
+            --light-gray: #f4f4f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-gray);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--dark-blue);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hotel {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .hotel-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .hotel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hotel-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .hotel h1 {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-top: 0;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .hotel p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 15px 0;
+        }
+
+        .btn-know-more {
+            background-color: var(--dark-blue);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background 0.3s;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .btn-know-more:hover {
+            background-color: var(--gold);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Best Hotels in Hyderabad</h2>
+
+    <div class="container">
+        <article class="hotel">
+            <div class="hotel-image-container">
+                <img src="tajfaluknama.png" alt="Taj Falaknuma Palace">
+            </div>
+            <div class="hotel-content">
+                <h1>1. Taj Falaknuma Palace</h1>
+                <p>A symbol of Hyderabad's Nizam-era splendor, this Indo-Saracenic masterpiece offers royal Indian hospitality and unparalleled historical grandeur.</p>
+                <button class="btn-know-more" onclick="window.location.href='https://www.tajhotels.com/en-in/hotels/taj-falaknuma-palace-hyderabad'">
+                    View Details
+                </button>
+            </div>
+        </article>
+
+        <article class="hotel">
+            <div class="hotel-image-container">
+                <img src="itc.png" alt="ITC Kakatiya">
+            </div>
+            <div class="hotel-content">
+                <h1>2. ITC Kakatiya</h1>
+                <p>A luxury 5-star destination renowned for its Kakatiya-inspired architecture, sustainable practices, and award-winning South Indian fine dining.</p>
+                <button class="btn-know-more" onclick="window.location.href='https://www.itchotels.com/in/en/itckakatiya-hyderabad'">
+                    View Details
+                </button>
+            </div>
+        </article>
+
+        <article class="hotel">
+            <div class="hotel-image-container">
+                <img src="park.png" alt="Park Hyatt">
+            </div>
+            <div class="hotel-content">
+                <h1>3. Park Hyatt</h1>
+                <p>Experience residential-style luxury in Banjara Hills. Features upscale serviced apartments and world-class dining within a contemporary art-filled space.</p>
+                <button class="btn-know-more" onclick="window.location.href='https://www.hyatt.com/park-hyatt/en-US/hydph-park-hyatt-hyderabad'">
+                    View Details
+                </button>
+            </div>
+        </article>
+    </div>
+
+</body>
+</html>

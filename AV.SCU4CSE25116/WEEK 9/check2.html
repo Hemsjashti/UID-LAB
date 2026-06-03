@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>checking a number is prime or composite</title>
+    </head>
+    <body>
+        <script>
+            let number = 5;
+            if(number <= 1){
+                document.write("The number is neither prime nor composite.");
+            } else if(number === 2){
+                document.write("The number is prime.");
+            } 
+            else {
+        for(let i=2; i<number; i++){
+            if(number % i === 0){
+                document.write("The number is composite.");
+                break;
+            }
+            else{
+                document.write("The number is prime.");
+                break;
+            }
+        }
+    }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>grade caluclating with switch statements</title>
+    </head>
+    <body>
+        <script>
+                    let score = 55;
+           switch(true){
+            case score >= 90 && score <= 100:
+                document.write("Your grade is A.");
+                break;
+            case score >= 80 && score < 90:
+                document.write("Your grade is B.");
+                break;
+            case score >= 70 && score < 80:
+                document.write("Your grade is C.");
+                break;
+            case score >= 60 && score < 70:
+                document.write("Your grade is D.");
+                break;
+            case score >= 0 && score < 60:
+                document.write("Your grade is F.");
+                break;
+            default:
+                document.write("Invalid input. Please enter a valid score between 0 and 100.");
+           }
+           
+        </script>
+    </body> 
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE code>
+<html>
+<head>
+<title> Habit Tracker </title>
+<style>
+body{
+    background:#cfc7c0;
+    font-family: Arial;
+    text-align:center;
+}
+
+h2{margin:20px}
+
+input{
+    padding:8px;
+    border-radius:6px;
+    border:none;
+}
+
+button{
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    background:#6f9e8a;
+    color:white;
+    cursor:pointer;
+    margin:3px;
+}
+
+.nav button{
+    background:#444;
+}
+
+table{
+    margin:auto;
+    border-spacing:15px;
+}
+
+th{
+    width:100px;
+    height:50px;
+    background:#9b8575;
+    padding:12px;
+    border-radius:8px;
+    color:white;
+}
+
+.task{
+    background:#6f9e8a;
+}
+
+td{
+    width:100px;
+    height:50px;
+    background:#e8e6e3;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.done{
+    background:#6f9e8a;
+}
+
+.delete{
+    text-align: center;
+    background:#d9534f;
+    color:white;
+    cursor:pointer;
+}
+</style>
+
+</head> 
+<body>
+
+<h2>Habit Tracker</h2>
+
+<div class="nav">
+    <button onclick="prevWeek()">←</button>
+    <span id="weekLabel"></span>
+    <button onclick="nextWeek()">→</button>
+</div>
+
+<br>
+
+<input type="text" id="taskInput" placeholder="Enter habit">
+<button onclick="addTask()">Add</button>
+
+<br><br>
+
+<table id="table"></table>
+
+<script>
+
+var tasks = [];
+var currentWeek = 0;
+
+var days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+
+// add task
+function addTask() {
+
+    var input = document.getElementById("taskInput");
+    var text = input.value;
+
+    if (text == "") return;
+
+    var newTask = {name: text, weeks: [[0,0,0,0,0,0,0]]};
+
+    tasks.push(newTask); //appends the new task to the end of the tasks array
+
+    input.value = "";
+
+    drawTable();
+}
+
+// add task by pressing Enter
+var taskInput = document.getElementById("taskInput");
+taskInput.onkeydown = function(event) {
+    if (event.key === "Enter") {
+        addTask();
+    }
+};
+
+// next week
+function nextWeek() {
+    currentWeek = currentWeek + 1;
+    drawTable();
+}
+
+// previous week
+function prevWeek() {
+    if (currentWeek > 0) {
+        currentWeek = currentWeek - 1;
+    }
+    drawTable();
+}
+
+// draw table
+function drawTable() {
+
+    var code = "";
+
+    document.getElementById("weekLabel").innerText = "Week " + (currentWeek + 1);
+
+    // header
+    code += "<tr>";
+    code += "<th class='task'>Task</th>";
+
+    for (var i = 0; i < days.length; i++) {
+        code += "<th>" + days[i] + "</th>";
+    }
+
+    code += "<th>delete ❌</th>";
+    code += "</tr>";
+
+    // rows
+    for (var t = 0; t < tasks.length; t++) //loops through the tasks array and creates a row for each task
+    {
+
+        code += "<tr>";
+
+        code += "<th class='task'>" + tasks[t].name + "</th>";
+
+        for (var d = 0; d < days.length; d++) { //loop for each day of the week of a task
+
+            // create week if missing
+            if (!tasks[t].weeks[currentWeek]) {
+                tasks[t].weeks[currentWeek] = [0,0,0,0,0,0,0];
+            }
+
+            var value = tasks[t].weeks[currentWeek][d];
+
+            if (value == 1) {
+                code += "<td class='done' onclick='toggle(" + t + "," + d + ")'></td>"; //+ t +  is used to convert the value of t variable into the index of the task
+            } 
+            else {
+                code += "<td onclick='toggle(" + t + "," + d + ")'></td>"; 
+            }
+        }
+
+        code += "<td class='delete' onclick='deleteTask(" + t + ")'>X</td>";
+        code += "</tr>";
+    }
+    document.getElementById("table").innerHTML = code;
+}
+
+// toggle cell
+function toggle(taskIndex, dayIndex) {
+
+    var task = tasks[taskIndex];
+
+    if (task.weeks[currentWeek][dayIndex] == 0) {
+        task.weeks[currentWeek][dayIndex] = 1;
+    } 
+    else {
+        task.weeks[currentWeek][dayIndex] = 0;
+    }
+
+    drawTable();
+}
+
+// delete task
+function deleteTask(taskIndex) {
+    tasks.splice(taskIndex, 1);
+    drawTable();
+}
+
+// start
+drawTable();
+
+</script>
+
+</body>
+</html>

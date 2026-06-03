@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+<style>
+
+/* FIX WHITE SPACE ISSUE */
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: radial-gradient(circle at top, #1b2735, #090a0f);
+}
+
+/* MAIN BODY */
+body{
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #e6e6e6;
+}
+
+/* TITLE */
+h1{
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* BUTTON ROW */
+.choices{
+    display: flex;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+/* GAME BUTTONS */
+.choices button{
+    width: 110px;
+    height: 110px;
+    font-size: 32px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.choices button:hover{
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* RESULT */
+#result{
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* WIN / LOSE EFFECT */
+.win{
+    color: #4caf50;
+    animation: glow 0.5s ease;
+}
+
+.lose{
+    color: #ff5252;
+    animation: glow 0.5s ease;
+}
+
+@keyframes glow{
+    0%{opacity:0.3}
+    100%{opacity:1}
+}
+
+/* SCOREBOARD */
+.scoreboard{
+    width: 270px;
+    background: rgba(255,255,255,0.05);
+    padding: 18px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* RESET BUTTON */
+.reset{
+
+    margin-top: 25px;
+    padding: 12px 30px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+    <h1>Rock Paper Scissor Game</h1>
+
+    <div class="choices">
+        <button class="rock" onclick="playGame('rock')">🗿</button>
+
+        <button class="paper" onclick="playGame('paper')">🗞️</button>
+
+        <button class="scissor" onclick="playGame('scissors')">✂️</button>
+    </div>
+
+    <p id="result">Choose an option to Start the Game.</p>
+
+    <div class="scoreboard">
+        <p><strong>Scoreboard</strong></p>
+        <p>Wins   : <span id="wins">  0</span>  </p>
+        <p>Losses : <span id="losses">0</span>  </p>
+        <p>Draw   : <span id="draws"> 0</span>  </p>
+    </div>
+
+    <button class="reset" onclick="resetGame()">Restart</button>
+
+
+    <script>
+        let wins = 0
+        let losses = 0
+        let draws = 0
+
+
+        function playGame(userChoice){
+            //Rock -Paper - Scissor
+
+          const choices = ['rock' ,'paper' , 'scissors']
+
+          const computerChoice = choices[Math.floor(Math.random()*3)]
+         // console.log(computerChoice)- Tested 
+
+          let resultMessage = ""
+
+          //Logic of Game
+
+          if(userChoice === computerChoice){
+             resultMessage = ' You Pick The Same Option . It Is a Draw ' + userChoice
+             draws++
+          }
+          else if(
+              (userChoice === 'rock' && computerChoice === 'scissors') ||
+              (userChoice === 'paper' && computerChoice === 'rock') ||
+              (userChoice === 'scissors' && computerChoice === 'paper') 
+          
+            ){
+                
+                resultMessage = 'You Won ' +"<br>" + userChoice + ' Beats  ' + computerChoice
+                wins++
+            }else{
+                resultMessage = 'You Loose ' +"<br>" + computerChoice + ' Beats  ' + userChoice
+                losses++
+            }
+
+
+            document.getElementById('result').innerHTML = resultMessage
+            document.getElementById('wins').innerHTML = wins
+            document.getElementById('losses').innerHTML = losses
+            document.getElementById('draws').innerHTML = draws
+
+
+
+        }
+
+        function resetGame(){
+            wins = 0
+            losses = 0
+            draws = 0
+
+
+             document.getElementById('result').innerHTML = "Game Restarted Play Again"
+            document.getElementById('wins').innerHTML = wins
+            document.getElementById('losses').innerHTML = losses
+            document.getElementById('draws').innerHTML = draws
+
+
+
+        }
+        
+
+
+
+    </script>   
+</body>
+</html>
